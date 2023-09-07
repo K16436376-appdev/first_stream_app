@@ -45,6 +45,9 @@ streamlit.dataframe(my_data_row)
 streamlit.text("The fruit load list contains:")
 streamlit.text(my_data_rows)
 
-insert into fruit_load_list values ('from streamlit');
+streamlit.write('Thanks for adding ', add_my_fruit)
 
-select * from fruit_load_list;
+#This will not work correctly, but just go with it for now
+my_cur.execute("insert into fruit_load_list values ('from streamlit')")
+
+my_cur.execute("SELECT * from pc_rivery_db.public.fruit_load_list")
