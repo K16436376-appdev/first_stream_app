@@ -1,2 +1,4 @@
 # requirements.txt  Reboot
 snowflake-connector-python
+
+import snowflake.connect
