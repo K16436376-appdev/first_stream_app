@@ -1,2 +1,2 @@
-# requirements.txt
+# requirements.txt  Reboot
 snowflake-connector-python
