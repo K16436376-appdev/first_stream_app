@@ -40,8 +40,6 @@ streamlit.write('The user entered ', fruit_choice)
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + "kiwi")
 
-import snowflake.connector
-
 # take the json version of the response and normalize it
 fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
 #ouput it to the screen as a table
@@ -66,7 +64,15 @@ streamlit.dataframe(fruityvice_normalized)
 # write your own comment - what does this do?
 #streamlit.dataframe(fruityvice_normalized)
 
-#import snowflake.connector
+import snowflake.connector
+
+my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+my_cur = my_cnx.cursor()
+my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
+my_data_row = my_cur.fetchone()
+streamlit.text("Hello from Snowflake:")
+streamlit.text(my_data_row)
+
 #streamlit.header("View Our Fruit List - Add Your Favorities!")
 #Snowflake-related functions
 #def get_fruit_load_list():
