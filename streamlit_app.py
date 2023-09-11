@@ -24,7 +24,7 @@ def get_fruityvice_data(this_fruit_choice):
   fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
   return fruityvice_normalized
 #New section to display fruityvice api response
+streamlit.header("Fruityvice Fruit Advice!")
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-streamlit.text(fruityvice_response.json(0))
-streamlit.header("Fruityvice Fruit Advice!")
+streamlit.text(fruityvice_response)
